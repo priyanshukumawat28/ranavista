@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body { @apply bg-cream font-sans text-ink; }
+  h1, h2, h3, .font-display { @apply font-serif tracking-tight; }
+  ::selection { background: #B89B6B55; }
+  :focus-visible { outline: 2px solid #B89B6B; outline-offset: 2px; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50 whitespace-nowrap; }
+  .btn-primary { @apply btn bg-forest text-white hover:bg-forest-700 active:scale-[.98] shadow-sm; }
+  .btn-gold { @apply btn bg-gold text-white hover:bg-gold-dark active:scale-[.98] shadow-sm; }
+  .btn-outline { @apply btn border border-forest text-forest bg-white hover:bg-forest hover:text-white; }
+  .btn-ghost { @apply btn text-ink-medium hover:bg-mist hover:text-ink; }
+  .btn-danger { @apply btn bg-danger text-white hover:brightness-95; }
+  .btn-sm { @apply px-3 py-1.5 text-xs; }
+  .btn-lg { @apply px-6 py-3 text-base; }
+
+  .label { @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-ink-medium; }
+  .input { @apply w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-slate transition focus:border-forest focus:outline-none focus:ring-4 focus:ring-forest/10 disabled:bg-mist; }
+
+  .card { @apply rounded-xl2 border border-beige/80 bg-white shadow-soft; }
+  .card-pad { @apply p-5 sm:p-6; }
+
+  .eyebrow { @apply text-xs font-medium uppercase tracking-[0.2em] text-gold-dark; }
+  .link { @apply font-medium text-forest underline-offset-4 hover:underline; }
+
+  .table { @apply w-full text-left text-sm; }
+  .table th { @apply bg-cream/70 px-4 py-3 text-xs font-medium uppercase tracking-wider text-ink-medium; }
+  .table td { @apply border-t border-mist px-4 py-3.5 align-middle; }
+  .table tbody tr { @apply transition hover:bg-cream/40; }
+}
+
+.bg-grain {
+  background-image: radial-gradient(circle at 1px 1px, rgba(184, 155, 107, 0.18) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+.bg-hero {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(184, 155, 107, 0.28), transparent 60%),
+    radial-gradient(800px 400px at -10% 110%, rgba(139, 168, 142, 0.25), transparent 60%),
+    #0D3B32;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.6s cubic-bezier(.2,.7,.2,1) both; }
+.rise-2 { animation-delay: 0.12s; }
+.rise-3 { animation-delay: 0.24s; }
+@media (prefers-reduced-motion: reduce) { .rise { animation: none; } }
